@@ -1,3 +1,5 @@
+import random
+
 import pygame
 
 
@@ -14,17 +16,23 @@ def draw(screen):
                      (text_x - 10, text_y - 10, text_w + 20, text_h + 20), width=1)
 
 
+def draw2(screen):
+    for i in range(1000):
+        screen.fill(pygame.Color('white'), (random.random() * width, random.random() * height, 1, 1))
+
+
 if __name__ == '__main__':
     pygame.init()
     size = width, height = 800, 600
     screen = pygame.display.set_mode(size)
 
-    draw(screen)
+    draw2(screen)
 
     # смена кадров
     pygame.display.flip()
 
     running = True
+
 
     while running:
         # poll for events
