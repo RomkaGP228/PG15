@@ -11,7 +11,7 @@ def draw(screen):
     text_h = text.get_height()
     screen.blit(text, (text_x, text_y))
     pygame.draw.rect(screen, (0, 255, 0),
-                     (text_x - 10, text_y - 10, text_w + 10, text_h + 10))
+                     (text_x - 10, text_y - 10, text_w + 20, text_h + 20), width=1)
 
 
 if __name__ == '__main__':
@@ -24,7 +24,13 @@ if __name__ == '__main__':
     # смена кадров
     pygame.display.flip()
 
-    while pygame.event.wait().type != pygame.QUIT:
-        pass
+    running = True
+
+    while running:
+        # poll for events
+        # pygame.QUIT event means the user clicked X to close your window
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
     pygame.quit()
